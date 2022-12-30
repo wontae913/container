@@ -1,0 +1,36 @@
+1. dockerfile 생성
+
+cat << EOF > Dockerfile
+FROM nginx:latest
+RUN  echo '<h1> test nginx web page </h1>'  >> index.html
+RUN cp /index.html /usr/share/nginx/html
+EOF
+
+
+2. 이미지 빌드
+sudo docker image build -t test-image .
+
+
+3. 이미지 확인
+sudo docker image ls
+
+
+1. 컨테이너 실행
+sudo docker container run -p 8080:80 --name webserver1 test-image
+
+
+2. 컨테이너 확인
+sudo docker ps
+
+
+3. 컨테이너 로그 확인
+sudo docker container logs -f webserver1
+
+
+4. 컨테이너 내부 shell 접근
+sudo docker container exec -it webserver1 /bin/bash
+echo '<h2> into the webserver1 container </h2>'  >> index.html
+
+# volume bind 해보기
+mkdir data && cd data && echo '<h3 index.html file modify </h3'  >> index.html
+sudo docker container run -d -p 8081:80 -v /home/data:/usr/share/nginx/html --name webserver2 nginx
