@@ -31,5 +31,5 @@ sudo docker container exec -it webserver1 /bin/bash
 echo '<h2> into the webserver1 container </h2>'  >> index.html
 
 # volume bind 해보기
-mkdir data && cd data && echo '<h3 index.html file modify </h3'  >> index.html
+mkdir data && cd data && echo '<h3> index.html file modify </h3>'  >> index.html
 sudo docker container run -d -p 8081:80 -v /home/data:/usr/share/nginx/html --name webserver2 nginx
