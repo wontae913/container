@@ -29,7 +29,6 @@ managedNodeGroups:
 iam:
   withOIDC: true
 
-
 addons:
   - name: vpc-cni # no version is specified so it deploys the default version
     # version: 1.12.0 # 확인필요
