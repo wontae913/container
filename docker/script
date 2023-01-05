@@ -30,9 +30,9 @@ sudo docker container logs -f webserver1
 
 7. 컨테이너 내부 shell 접근
 sudo docker container exec -it webserver1 /bin/bash
-echo '<h2> into the webserver1 container </h2>'  >> index.html
+echo '<h2> into the webserver1 container </h2>'  >> /usr/share/nginx/html/index.html
 
 
 # volume bind 해보기
-mkdir data && cd data && echo '<h3> index.html file modify </h3>'  >> index.html
-sudo docker container run -d -p 8081:80 -v /home/data:/usr/share/nginx/html --name webserver2 nginx
+mkdir ~/data && cd ~/data && echo '<h3> index.html file modify </h3>'  >> index.html
+sudo docker container run -d -p 8081:80 -v ~/data:/usr/share/nginx/html --name webserver2 nginx
