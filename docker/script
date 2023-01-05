@@ -17,7 +17,7 @@ sudo docker image ls
 
 
 4. 컨테이너 실행
-sudo docker container run -p 8080:80 --name webserver1 test-image
+sudo docker container run -d -p 8080:80 --name webserver1 test-image
 
 
 5. 컨테이너 확인
