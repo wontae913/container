@@ -1,4 +1,6 @@
 1. dockerfile 생성
+mkdir /home/ec2-user/nginx-test && cd ~/nginx-test
+
 cat << EOF > Dockerfile
 FROM nginx:latest
 RUN  echo '<h1> test nginx web page </h1>'  >> index.html
@@ -29,6 +31,7 @@ sudo docker container logs -f webserver1
 7. 컨테이너 내부 shell 접근
 sudo docker container exec -it webserver1 /bin/bash
 echo '<h2> into the webserver1 container </h2>'  >> index.html
+
 
 # volume bind 해보기
 mkdir data && cd data && echo '<h3> index.html file modify </h3>'  >> index.html
