@@ -1,5 +1,5 @@
 1. dockerfile 생성
-mkdir ~/nginx-test && cd ~/nginx-test
+mkdir ~/test-image && cd ~/test-image
 
 cat << EOF > Dockerfile
 FROM nginx:latest
