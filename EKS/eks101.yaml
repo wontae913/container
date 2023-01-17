@@ -18,6 +18,7 @@ managedNodeGroups:
     desiredCapacity: 2 # 클러스터 워커 노드의 갯수
     volumeSize: 10  # 클러스터 워커 노드의 EBS 용량 (단위: GiB)
     privateNetworking: true
+    ssh: true
     iam:
       withAddonPolicies:
         imageBuilder: true # Amazon ECR에 대한 권한 추가
