@@ -5,10 +5,10 @@ kind: ClusterConfig
 metadata:
   name: eks101 # 생성할 EKS 클러스터명
   region: ap-northeast-2 # 클러스터를 생성할 리전
-  version: "1.22"
+  version: "1.25"
 
 vpc:
-  cidr: "10.0.0.0/16" # 클러스터에서 사용할 VPC의 CIDR
+  cidr: "10.38.0.0/16" # 클러스터에서 사용할 VPC의 CIDR
   nat:
     gateway: Single
 
@@ -18,7 +18,6 @@ managedNodeGroups:
     desiredCapacity: 2 # 클러스터 워커 노드의 갯수
     volumeSize: 10  # 클러스터 워커 노드의 EBS 용량 (단위: GiB)
     privateNetworking: true
-    ssh: true
     iam:
       withAddonPolicies:
         imageBuilder: true # Amazon ECR에 대한 권한 추가
