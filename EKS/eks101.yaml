@@ -18,13 +18,10 @@ iam:
 
 vpc:
   cidr: "10.38.0.0/16" # 클러스터에서 사용할 VPC의 CIDR
-  autoAllocateIPv6: true
-  nat:
-    gateway: Single
 
   # disable public access to endpoint and only allow private access
   clusterEndpoints:
-    publicAccess: false
+    publicAccess: true
     privateAccess: true
 
 kubernetesNetworkConfig:
@@ -44,8 +41,6 @@ managedNodeGroups:
     desiredCapacity: 2 # 클러스터 워커 노드의 갯수
     volumeSize: 10  # 클러스터 워커 노드의 EBS 용량 (단위: GiB)
     privateNetworking: true
-    ssh:
-      enableSsm: true
     iam:
       withAddonPolicies:
         imageBuilder: true # Amazon ECR에 대한 권한 추가
