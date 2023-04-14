@@ -44,11 +44,6 @@ managedNodeGroups:
     iam:
       withAddonPolicies:
         imageBuilder: true # Amazon ECR에 대한 권한 추가
-        albIngress: true  # albIngress에 대한 권한 추가
         cloudWatch: true # cloudWatch에 대한 권한 추가
         autoScaler: true # auto scaling에 대한 권한 추가
         ebs: true # EBS CSI Driver에 대한 권한 추가
-
-cloudWatch:
-  clusterLogging:
-    enableTypes: ["controllerManager"]
