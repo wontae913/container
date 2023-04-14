@@ -6,12 +6,6 @@ metadata:
   name: eks101 # 생성할 EKS 클러스터명
   region: ap-northeast-2 # 클러스터를 생성할 리전
   version: "1.25"
-  tags:
-    karpenter.sh/discovery: cluster-with-karpenter
-
-karpenter:
-  version: 'v0.26.1' # Exact version must be provided
-  createServiceAccount: true # default is false
 
 iam:
   withOIDC: true
@@ -45,5 +39,4 @@ managedNodeGroups:
       withAddonPolicies:
         imageBuilder: true # Amazon ECR에 대한 권한 추가
         cloudWatch: true # cloudWatch에 대한 권한 추가
-        autoScaler: true # auto scaling에 대한 권한 추가
         ebs: true # EBS CSI Driver에 대한 권한 추가
